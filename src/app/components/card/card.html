@@ -1,24 +1,47 @@
-<div>
-  <mat-card> </mat-card>
+@if (detailsVisible) {
+<mat-card
+  class="active-card-details"
+  role="region"
+  aria-labelledby="active-card-details-title"
+>
+  <header>
+    <h2 id="active-card-details-title">Active card details</h2>
+    <button
+      mat-icon-button
+      type="button"
+      class="close-btn"
+      aria-label="Close active card details"
+      (click)="closeDetails()"
+    >
+      <mat-icon fontIcon="close"></mat-icon>
+    </button>
+  </header>
 
-  <mat-card> </mat-card>
+  <section aria-label="Active card content">
+    <p>
+      Please detach component and add the content that you need. The icon from
+      the bottom should be the same with the icon from cluster card that is
+      active
+    </p>
+    <p>
+      Please detach component and add the content that you need. The icon from
+      the bottom should be the same with the icon from cluster card that is
+      active
+    </p>
+    <p>
+      Please detach component and add the content that you need. The icon from
+      the bottom should be the same with the icon from cluster card that is
+      active Please detach component and add the content that you need. The icon
+      from the bottom should be the same with the icon from cluster card that is
+      active Please detach component and add the content that you need.
+    </p>
+  </section>
 
-  <p>
-    Please detach component and add the content that you need. The icon from the
-    bottom should be the same with the icon from cluster card that is active
-    <br />
-    <br />
-    Please detach component and add the content that you need. The icon from the
-    bottom should be the same with the icon from cluster card that is active
-
-    <br />
-    <br />
-    <br />
-    Please detach component and add the content that you need. The icon from the
-    bottom should be the same with the icon from cluster card that is active
-    Please detach component and add the content that you need. The icon from the
-    bottom should be the same with the icon from cluster card that is active
-    Please detach component and add the content that you need.
-  </p>
-  <mat-icon class="card-container-background-icon">file_copy</mat-icon>
-</div>
+  <mat-icon
+    class="bg-icon"
+    aria-hidden="true"
+    fontSet="material-icons-outlined"
+    >file_copy</mat-icon
+  >
+</mat-card>
+}

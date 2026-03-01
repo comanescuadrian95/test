@@ -1,12 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { MatIconButton } from '@angular/material/button';
+import { MatCard } from '@angular/material/card';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
     selector: 'app-card',
     templateUrl: './card.html',
     styleUrls: ['./card.scss'],
-    standalone: false
+    standalone: true,
+    imports: [MatCard, MatIcon, MatIconButton],
+    changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
+  detailsVisible = true;
 
-  constructor() {}
+  closeDetails(): void {
+    this.detailsVisible = false;
+  }
 }
