@@ -1,6 +1,27 @@
 <div class="display-wrapper">
-  <mat-label>Title Input</mat-label>
-  <input type="text" />
-  <mat-label>Subtitle Input</mat-label>
-  <input type="text" />
+  <mat-form-field appearance="outline" subscriptSizing="dynamic">
+    <mat-label>Title Input</mat-label>
+    <input
+      matInput
+      id="card-title-input"
+      type="text"
+      [value]="title()"
+      [disabled]="isDisabled()"
+      (input)="onTitleInput($event)"
+      (blur)="markAsTouched()"
+    />
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" subscriptSizing="dynamic">
+    <mat-label>Subtitle Input</mat-label>
+    <input
+      matInput
+      id="card-content-input"
+      type="text"
+      [value]="content()"
+      [disabled]="isDisabled()"
+      (input)="onContentInput($event)"
+      (blur)="markAsTouched()"
+    />
+  </mat-form-field>
 </div>

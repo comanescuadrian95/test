@@ -2,12 +2,22 @@
 @use "./typography-tokens" as typography;
 @use "./units";
 
-$status-card-surface: #3a67ad;
-$status-card-text: #ffffff;
+$status-card-primary-surface: #2e5da4;
+$status-card-primary-text: #FFFFFF;
+$status-card-success-surface: #008542;
+$status-card-success-text: #FFFFFF;
+$status-card-warning-surface: #ffa000;
+$status-card-warning-text: #142832;
+$status-card-danger-surface: #d62839;
+$status-card-danger-text: #FFFFFF;
+$status-card-attention-surface: #ff7700;
+$status-card-attention-text: #142832;
+$status-card-disabled-surface: #757575;
+$status-card-disabled-text: #FFFFFF;
 $status-card-shadow:
-  0 1px 3px 0 #00000033,
-  0 2px 1px 0 #0000001f,
-  0 1px 1px 0 #00000024;
+  0px 1px 3px 0px #00000033,
+  0px 2px 1px 0px #0000001F,
+  0px 1px 1px 0px #00000024;
 $status-card-width: units.rem(214px);
 $status-card-height: units.rem(81px);
 $status-card-radius: spacing.$radius-4;
@@ -29,10 +39,22 @@ $status-card-icon-size: units.rem(56px);
 $status-card-icon-right: 0;
 $status-card-icon-bottom: units.rem(-8px);
 $status-card-icon-opacity: 0.2;
+$status-card-active-border-width: units.rem(2px);
+$status-card-active-border-color: #FFFFFF;
 
 @mixin host-css-vars {
-  --status-card-surface: #{$status-card-surface};
-  --status-card-text: #{$status-card-text};
+  --status-card-primary-surface: #{$status-card-primary-surface};
+  --status-card-primary-text: #{$status-card-primary-text};
+  --status-card-success-surface: #{$status-card-success-surface};
+  --status-card-success-text: #{$status-card-success-text};
+  --status-card-warning-surface: #{$status-card-warning-surface};
+  --status-card-warning-text: #{$status-card-warning-text};
+  --status-card-danger-surface: #{$status-card-danger-surface};
+  --status-card-danger-text: #{$status-card-danger-text};
+  --status-card-attention-surface: #{$status-card-attention-surface};
+  --status-card-attention-text: #{$status-card-attention-text};
+  --status-card-disabled-surface: #{$status-card-disabled-surface};
+  --status-card-disabled-text: #{$status-card-disabled-text};
   --status-card-shadow: #{$status-card-shadow};
   --status-card-width: #{$status-card-width};
   --status-card-height: #{$status-card-height};
@@ -54,4 +76,6 @@ $status-card-icon-opacity: 0.2;
   --status-card-icon-right: #{$status-card-icon-right};
   --status-card-icon-bottom: #{$status-card-icon-bottom};
   --status-card-icon-opacity: #{$status-card-icon-opacity};
+  --status-card-active-border-width: #{$status-card-active-border-width};
+  --status-card-active-border-color: #{$status-card-active-border-color};
 }

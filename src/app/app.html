@@ -31,28 +31,91 @@
 
   <br />
   <p>
-    Status mat-card: <b>Afiseaza aici statusul cardului ( open / closed )</b>
+    Status mat-card: <b>{{ statusLabel() }}</b>
   </p>
 
   <p>Inputuri pentru card-container</p>
 
-  <div class="example-form-field-container">
-    <mat-label>Title container Input</mat-label>
-    <input type="text" />
-  </div>
-
-  <div class="row mb-4">
-    <div class="col-md-6">
-      <app-status-card></app-status-card>
+  <form [formGroup]="form">
+    <div class="example-form-field-container mb-4">
+      <label for="status-disabled-toggle">Status card disabled</label>
+      <input
+        id="status-disabled-toggle"
+        type="checkbox"
+        [checked]="form.controls.statusOpen.disabled"
+        (change)="onStatusDisabledChange($event)"
+      />
     </div>
-  </div>
+
+    <div class="example-form-field-container mb-4">
+      <fieldset>
+        <legend>Status card color</legend>
+        <label for="status-color-primary">
+          <input
+            id="status-color-primary"
+            type="radio"
+            formControlName="statusColor"
+            value="primary"
+          />
+          Primary
+        </label>
+        <label for="status-color-success">
+          <input
+            id="status-color-success"
+            type="radio"
+            formControlName="statusColor"
+            value="success"
+          />
+          Success
+        </label>
+        <label for="status-color-warning">
+          <input
+            id="status-color-warning"
+            type="radio"
+            formControlName="statusColor"
+            value="warning"
+          />
+          Warning
+        </label>
+        <label for="status-color-danger">
+          <input
+            id="status-color-danger"
+            type="radio"
+            formControlName="statusColor"
+            value="danger"
+          />
+          Danger
+        </label>
+        <label for="status-color-attention">
+          <input
+            id="status-color-attention"
+            type="radio"
+            formControlName="statusColor"
+            value="attention"
+          />
+          Attention
+        </label>
+      </fieldset>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-md-6">
+        <app-status-card
+          formControlName="statusOpen"
+          [color]="statusColor()"
+          [title]="displayValue().title"
+          [content]="displayValue().content"
+        ></app-status-card>
+      </div>
+      <div class="col-md-6">
+        <app-display formControlName="display"></app-display>
+      </div>
+    </div>
+  </form>
 
   <div class="row">
     <div class="col-md-6">
-      <app-card></app-card>
-    </div>
-    <div class="col-md-6">
-      <app-display></app-display>
+      <app-card [open]="statusOpen()" (closed)="onDetailsClose()"></app-card>
     </div>
   </div>
 </div>

@@ -1,10 +1,21 @@
-<mat-card class="status-card" role="article" aria-label="Status card">
+<mat-card
+  class="status-card"
+  role="button"
+  aria-label="Status card"
+  [class.status-card-disabled]="isDisabled()"
+  [attr.tabindex]="isDisabled() ? -1 : 0"
+  [attr.aria-pressed]="isActive()"
+  [attr.aria-disabled]="isDisabled()"
+  (click)="toggleActive()"
+  (keydown)="onCardKeydown($event)"
+  (blur)="markAsTouched()"
+>
   <section class="status-card-content" aria-label="Status details">
     <h2>{{ title() }}</h2>
     <p>{{ content() }}</p>
   </section>
 
-  <p class="status-card-value" aria-label="Status value">{{ value() }}</p>
+  <p class="status-card-value" aria-label="Status value">0</p>
 
   <mat-icon
     class="status-card-icon"

@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  input,
+  output,
+} from '@angular/core';
 import { MatIconButton } from '@angular/material/button';
 import { MatCard } from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
@@ -12,9 +17,10 @@ import { MatIcon } from '@angular/material/icon';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Card {
-  detailsVisible = true;
+  readonly open = input(false);
+  readonly closed = output<void>();
 
   closeDetails(): void {
-    this.detailsVisible = false;
+    this.closed.emit();
   }
 }
