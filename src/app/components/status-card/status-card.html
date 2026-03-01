@@ -1,0 +1,15 @@
+<mat-card class="status-card" role="article" aria-label="Status card">
+  <section class="status-card-content" aria-label="Status details">
+    <h2>{{ title() }}</h2>
+    <p>{{ content() }}</p>
+  </section>
+
+  <p class="status-card-value" aria-label="Status value">{{ value() }}</p>
+
+  <mat-icon
+    class="status-card-icon"
+    aria-hidden="true"
+    fontSet="material-icons-outlined"
+    >file_copy</mat-icon
+  >
+</mat-card>

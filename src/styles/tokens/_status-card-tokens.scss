@@ -1,0 +1,57 @@
+@use "./spacing-tokens" as spacing;
+@use "./typography-tokens" as typography;
+@use "./units";
+
+$status-card-surface: #3a67ad;
+$status-card-text: #ffffff;
+$status-card-shadow:
+  0 1px 3px 0 #00000033,
+  0 2px 1px 0 #0000001f,
+  0 1px 1px 0 #00000024;
+$status-card-width: units.rem(214px);
+$status-card-height: units.rem(81px);
+$status-card-radius: spacing.$radius-4;
+$status-card-padding: spacing.$space-16 spacing.$space-16 spacing.$space-24
+  spacing.$space-24;
+$status-card-column-gap: spacing.$space-16;
+$status-card-content-gap: spacing.$space-8;
+$status-card-font-family: typography.$font-family-work-sans;
+$status-card-title-size: typography.$font-size-16;
+$status-card-title-line-height: typography.$line-height-120;
+$status-card-title-weight: typography.$font-weight-semibold;
+$status-card-content-size: typography.$font-size-12;
+$status-card-content-line-height: typography.$line-height-120;
+$status-card-content-weight: typography.$font-weight-regular;
+$status-card-value-size: typography.$font-size-34;
+$status-card-value-line-height: typography.$line-height-120;
+$status-card-value-weight: typography.$font-weight-medium;
+$status-card-icon-size: units.rem(56px);
+$status-card-icon-right: 0;
+$status-card-icon-bottom: units.rem(-8px);
+$status-card-icon-opacity: 0.2;
+
+@mixin host-css-vars {
+  --status-card-surface: #{$status-card-surface};
+  --status-card-text: #{$status-card-text};
+  --status-card-shadow: #{$status-card-shadow};
+  --status-card-width: #{$status-card-width};
+  --status-card-height: #{$status-card-height};
+  --status-card-radius: #{$status-card-radius};
+  --status-card-padding: #{$status-card-padding};
+  --status-card-column-gap: #{$status-card-column-gap};
+  --status-card-content-gap: #{$status-card-content-gap};
+  --status-card-font-family: #{$status-card-font-family};
+  --status-card-title-size: #{$status-card-title-size};
+  --status-card-title-line-height: #{$status-card-title-line-height};
+  --status-card-title-weight: #{$status-card-title-weight};
+  --status-card-content-size: #{$status-card-content-size};
+  --status-card-content-line-height: #{$status-card-content-line-height};
+  --status-card-content-weight: #{$status-card-content-weight};
+  --status-card-value-size: #{$status-card-value-size};
+  --status-card-value-line-height: #{$status-card-value-line-height};
+  --status-card-value-weight: #{$status-card-value-weight};
+  --status-card-icon-size: #{$status-card-icon-size};
+  --status-card-icon-right: #{$status-card-icon-right};
+  --status-card-icon-bottom: #{$status-card-icon-bottom};
+  --status-card-icon-opacity: #{$status-card-icon-opacity};
+}

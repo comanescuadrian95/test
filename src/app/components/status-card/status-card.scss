@@ -1,0 +1,82 @@
+@use "@angular/material" as mat;
+@use "../../../styles/tokens/status-card-tokens" as statusCardTokens;
+
+:host {
+  display: block;
+  @include statusCardTokens.host-css-vars;
+}
+
+.status-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  column-gap: var(--status-card-column-gap);
+  align-items: start;
+  width: var(--status-card-width);
+  min-height: var(--status-card-height);
+  padding: var(--status-card-padding);
+  border-radius: var(--status-card-radius);
+  background-color: var(--status-card-surface);
+  color: var(--status-card-text);
+  font-family: var(--status-card-font-family);
+  box-shadow: var(--status-card-shadow);
+
+  @include mat.card-overrides(
+    (
+      elevated-container-color: var(--status-card-surface),
+      elevated-container-shape: var(--status-card-radius),
+      elevated-container-elevation: var(--status-card-shadow),
+      subtitle-text-color: var(--status-card-text),
+      subtitle-text-font: var(--status-card-font-family),
+    )
+  );
+}
+
+.status-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--status-card-content-gap);
+  z-index: 1;
+
+  h2 {
+    margin: 0;
+    font-family: var(--status-card-font-family);
+    font-size: var(--status-card-title-size);
+    font-weight: var(--status-card-title-weight);
+    line-height: var(--status-card-title-line-height);
+    letter-spacing: 0;
+  }
+
+  p {
+    margin: 0;
+    font-family: var(--status-card-font-family);
+    font-size: var(--status-card-content-size);
+    font-weight: var(--status-card-content-weight);
+    line-height: var(--status-card-content-line-height);
+    letter-spacing: 0;
+  }
+}
+
+.status-card-value {
+  margin: 0;
+  z-index: 1;
+  font-family: var(--status-card-font-family);
+  font-size: var(--status-card-value-size);
+  font-weight: var(--status-card-value-weight);
+  line-height: var(--status-card-value-line-height);
+  letter-spacing: 0;
+}
+
+.status-card-icon {
+  position: absolute;
+  right: var(--status-card-icon-right);
+  bottom: var(--status-card-icon-bottom);
+  width: var(--status-card-icon-size);
+  height: var(--status-card-icon-size);
+  font-size: var(--status-card-icon-size);
+  line-height: var(--status-card-icon-size);
+  color: var(--status-card-text);
+  opacity: var(--status-card-icon-opacity);
+  pointer-events: none;
+}
