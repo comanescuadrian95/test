@@ -5,8 +5,8 @@ import {
   signal,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
 import { DisplayValue } from './display.types';
 
 @Component({
@@ -14,7 +14,7 @@ import { DisplayValue } from './display.types';
   templateUrl: './display.html',
   styleUrls: ['./display.scss'],
   standalone: true,
-  imports: [MatFormFieldModule, MatInputModule],
+  imports: [MatFormField, MatLabel, MatInput],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

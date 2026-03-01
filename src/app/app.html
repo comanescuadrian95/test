@@ -1,4 +1,4 @@
-<div class="container">
+<div class="app-shell">
   <h1>Test</h1>
   <p>Lista de taskuri</p>
   <ol>
@@ -36,8 +36,8 @@
 
   <p>Inputuri pentru card-container</p>
 
-  <form [formGroup]="form">
-    <div class="example-form-field-container mb-4">
+  <form [formGroup]="form" class="controls-form">
+    <div class="example-form-field-container">
       <label for="status-disabled-toggle">Status card disabled</label>
       <input
         id="status-disabled-toggle"
@@ -47,7 +47,7 @@
       />
     </div>
 
-    <div class="example-form-field-container mb-4">
+    <div class="example-form-field-container">
       <fieldset>
         <legend>Status card color</legend>
         @for (option of statusColorOptions; track option.value) {
@@ -64,8 +64,8 @@
       </fieldset>
     </div>
 
-    <div class="row mb-4">
-      <div class="col-md-6">
+    <section class="form-preview">
+      <div>
         <app-status-card
           formControlName="statusOpen"
           [color]="statusColor()"
@@ -73,15 +73,13 @@
           [content]="displayValue().content"
         ></app-status-card>
       </div>
-      <div class="col-md-6">
+      <div>
         <app-display formControlName="display"></app-display>
       </div>
-    </div>
+    </section>
   </form>
 
-  <div class="row">
-    <div class="col-md-6">
-      <app-card [open]="statusOpen()" (closed)="onDetailsClose()"></app-card>
-    </div>
-  </div>
+  <section class="details-panel">
+    <app-card [open]="statusOpen()" (closed)="onDetailsClose()"></app-card>
+  </section>
 </div>

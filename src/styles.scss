@@ -1,3 +1,27 @@
+@use '@angular/material' as mat;
+
+$app-theme: mat.define-theme((
+  color: (
+    theme-type: light,
+    primary: mat.$azure-palette,
+    tertiary: mat.$blue-palette,
+  ),
+  typography: (
+    plain-family: 'Work Sans, sans-serif',
+    brand-family: 'Work Sans, sans-serif',
+  ),
+));
+
+@include mat.core();
+
+:root {
+  @include mat.card-theme($app-theme);
+  @include mat.button-theme($app-theme);
+  @include mat.icon-theme($app-theme);
+  @include mat.form-field-theme($app-theme);
+  @include mat.input-theme($app-theme);
+}
+
 *,
 *::before,
 *::after {
@@ -8,6 +32,13 @@ html,
 body {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Work Sans', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #142832;
 }
 
 h1,
