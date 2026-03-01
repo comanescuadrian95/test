@@ -1,0 +1,15 @@
+@use "./units" as units;
+
+$font-family-work-sans: "Work Sans", sans-serif;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$font-size-12: units.rem(12px);
+$font-size-14: units.rem(14px);
+$font-size-16: units.rem(16px);
+$font-size-34: units.rem(34px);
+
+$line-height-18: units.rem(18px);
+$line-height-120: 120%;

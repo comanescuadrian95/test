@@ -1,0 +1,85 @@
+<div class="app-shell">
+  <h1>Test</h1>
+  <p>Lista de taskuri</p>
+  <ol>
+    <li>
+      Corectat designul la ambele style-uri din componenta card potrivit
+      detaliilor din figma:
+      <a
+        href="https://www.figma.com/design/P9DJKUG0AuGutH5WeQ3kA4/Test-UI?node-id=0-1&t=FfBuK4HTWsBIEl8Y-0"
+        >Link figma</a
+      >
+    </li>
+    <li>
+      Adaptat mat-card-ul pentru fiecare state descrie in figma ( default,
+      hover, active ( clicked ), disabled )
+    </li>
+    <li>
+      Preluat informatiile din display component si utilizate in card component
+      ( title si subtitle )
+    </li>
+    <li>
+      Containerul apare cand cardul este in active state, close button ascunde
+      containerul si dezactiveaza active state-ul.
+    </li>
+    <li>
+      Componenta app-display sa aiba implementata Controll Value Accessor pentru
+      a putea fi utilizata in form-uri reactive
+    </li>
+    <li>Toate componentele sa fie standalone, si cu changedetection OnPush</li>
+  </ol>
+
+  <br />
+  <p>
+    Status mat-card: <b>{{ statusLabel() }}</b>
+  </p>
+
+  <p>Inputuri pentru card-container</p>
+
+  <form [formGroup]="form" class="controls-form">
+    <div class="example-form-field-container">
+      <label for="status-disabled-toggle">Status card disabled</label>
+      <input
+        id="status-disabled-toggle"
+        type="checkbox"
+        [checked]="form.controls.statusOpen.disabled"
+        (change)="onStatusDisabledChange($event)"
+      />
+    </div>
+
+    <div class="example-form-field-container">
+      <fieldset>
+        <legend>Status card color</legend>
+        @for (option of statusColorOptions; track option.value) {
+        <label [for]="'status-color-' + option.value">
+          <input
+            [id]="'status-color-' + option.value"
+            type="radio"
+            formControlName="statusColor"
+            [value]="option.value"
+          />
+          {{ option.label }}
+        </label>
+        }
+      </fieldset>
+    </div>
+
+    <section class="form-preview">
+      <div>
+        <app-status-card
+          formControlName="statusOpen"
+          [color]="statusColor()"
+          [title]="displayValue().title"
+          [content]="displayValue().content"
+        ></app-status-card>
+      </div>
+      <div>
+        <app-display formControlName="display"></app-display>
+      </div>
+    </section>
+  </form>
+
+  <section class="details-panel">
+    <app-card [open]="statusOpen()" (closed)="onDetailsClose()"></app-card>
+  </section>
+</div>

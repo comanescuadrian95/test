@@ -1,0 +1,58 @@
+@use "./spacing-tokens" as spacing;
+@use "./typography-tokens" as typography;
+@use "./units";
+
+$card-details-surface: #ffffff;
+$card-details-text-primary: #142832;
+$card-details-text-secondary: #506482;
+$card-details-bg-icon: #506482;
+$card-details-shadow:
+  0px 1px 3px 0px #00000033,
+  0px 2px 1px 0px #0000001F,
+  0px 1px 1px 0px #00000024;
+$card-details-gap: spacing.$space-16;
+$card-details-padding: spacing.$space-16 spacing.$space-24 spacing.$space-24;
+$card-details-content-gap: spacing.$space-18;
+$card-details-radius: spacing.$radius-4;
+$card-details-font-family: typography.$font-family-work-sans;
+$card-details-subtitle-size: typography.$font-size-16;
+$card-details-subtitle-line-height: typography.$line-height-120;
+$card-details-subtitle-weight: typography.$font-weight-semibold;
+$card-details-content-size: typography.$font-size-14;
+$card-details-content-line-height: typography.$line-height-18;
+$card-details-content-weight: typography.$font-weight-regular;
+$card-close-size: spacing.$size-24;
+$card-close-icon-size: spacing.$size-14;
+$card-bg-icon-width: units.rem(56px);
+$card-bg-icon-height: units.rem(56px);
+$card-bg-icon-font-size: units.rem(56px);
+$card-bg-icon-offset-right: 0;
+$card-bg-icon-offset-bottom: -8px;
+$card-bg-icon-opacity: 0.24;
+
+@mixin host-css-vars {
+  --card-details-surface: #{$card-details-surface};
+  --card-details-text-primary: #{$card-details-text-primary};
+  --card-details-text-secondary: #{$card-details-text-secondary};
+  --card-details-bg-icon: #{$card-details-bg-icon};
+  --card-details-shadow: #{$card-details-shadow};
+  --card-details-gap: #{$card-details-gap};
+  --card-details-padding: #{$card-details-padding};
+  --card-details-radius: #{$card-details-radius};
+  --card-details-font-family: #{$card-details-font-family};
+  --card-details-subtitle-size: #{$card-details-subtitle-size};
+  --card-details-subtitle-line-height: #{$card-details-subtitle-line-height};
+  --card-details-subtitle-weight: #{$card-details-subtitle-weight};
+  --card-details-content-size: #{$card-details-content-size};
+  --card-details-content-line-height: #{$card-details-content-line-height};
+  --card-details-content-weight: #{$card-details-content-weight};
+  --card-details-content-gap: #{$card-details-content-gap};
+  --card-close-size: #{$card-close-size};
+  --card-close-icon-size: #{$card-close-icon-size};
+  --card-bg-icon-width: #{$card-bg-icon-width};
+  --card-bg-icon-height: #{$card-bg-icon-height};
+  --card-bg-icon-font-size: #{$card-bg-icon-font-size};
+  --card-bg-icon-offset-right: #{$card-bg-icon-offset-right};
+  --card-bg-icon-offset-bottom: #{$card-bg-icon-offset-bottom};
+  --card-bg-icon-opacity: #{$card-bg-icon-opacity};
+}

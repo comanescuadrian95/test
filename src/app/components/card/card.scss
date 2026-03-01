@@ -1,0 +1,90 @@
+@use "@angular/material" as mat;
+@use "../../../styles/tokens/card-tokens" as cardTokens;
+
+:host {
+  @include cardTokens.host-css-vars;
+}
+
+.active-card-details {
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--card-details-gap);
+  width: 100%;
+  max-width: 589px;
+  min-height: 296px;
+  padding: var(--card-details-padding);
+  border-radius: var(--card-details-radius);
+  background: var(--card-details-surface);
+  box-shadow: var(--card-details-shadow);
+  font-family: var(--card-details-font-family);
+
+  @include mat.card-overrides(
+    (
+      elevated-container-color: var(--card-details-surface),
+      elevated-container-shape: var(--card-details-radius),
+      elevated-container-elevation: var(--card-details-shadow),
+      subtitle-text-color: var(--card-details-text-secondary),
+      subtitle-text-font: var(--card-details-font-family),
+    )
+  );
+
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--card-details-gap);
+
+    h2 {
+      font-family: var(--card-details-font-family);
+      font-size: var(--card-details-subtitle-size);
+      font-weight: var(--card-details-subtitle-weight);
+      line-height: var(--card-details-subtitle-line-height);
+      letter-spacing: 0;
+      color: var(--card-details-text-primary);
+    }
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: var(--card-details-content-gap);
+    font-family: var(--card-details-font-family);
+    font-size: var(--card-details-content-size);
+    font-weight: var(--card-details-content-weight);
+    line-height: var(--card-details-content-line-height);
+    letter-spacing: 0;
+    color: var(--card-details-text-secondary);
+  }
+
+  .close-btn {
+    padding: 0;
+
+    @include mat.icon-button-overrides(
+      (
+        icon-size: var(--card-close-icon-size),
+        state-layer-size: var(--card-close-size),
+        icon-color: var(--card-details-text-secondary),
+        state-layer-color: var(--card-details-text-secondary),
+        hover-state-layer-opacity: 0,
+        focus-state-layer-opacity: 0,
+        pressed-state-layer-opacity: 0,
+        ripple-color: transparent,
+      )
+    );
+  }
+
+  .bg-icon {
+    position: absolute;
+    bottom: var(--card-bg-icon-offset-bottom);
+    right: var(--card-bg-icon-offset-right);
+    width: var(--card-bg-icon-width);
+    height: var(--card-bg-icon-height);
+    font-size: var(--card-bg-icon-font-size);
+    line-height: var(--card-bg-icon-height);
+    color: var(--card-details-bg-icon);
+    opacity: var(--card-bg-icon-opacity);
+    pointer-events: none;
+  }
+}

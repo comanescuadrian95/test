@@ -1,0 +1,90 @@
+@use "@angular/material" as mat;
+@use "../../../styles/tokens/status-card-tokens" as statusCardTokens;
+
+:host {
+  display: block;
+  @include statusCardTokens.host-css-vars;
+}
+
+.status-card {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: var(--status-card-column-gap);
+  align-items: start;
+  width: var(--status-card-width);
+  min-height: var(--status-card-height);
+  padding: var(--status-card-padding);
+  border-radius: var(--status-card-radius);
+  border: var(--status-card-active-border-width) solid
+    var(--status-card-border-current, transparent);
+  background-color: var(
+    --status-card-surface-current,
+    var(--status-card-primary-surface)
+  );
+  color: var(--status-card-text-current, var(--status-card-primary-text));
+  font-family: var(--status-card-font-family);
+  box-shadow: var(--status-card-shadow-current, var(--status-card-shadow));
+  cursor: pointer;
+
+  @include mat.card-overrides(
+    (
+      elevated-container-color: var(--status-card-surface-current),
+      elevated-container-shape: var(--status-card-radius),
+      elevated-container-elevation: var(--status-card-shadow),
+      subtitle-text-color: var(--status-card-text-current),
+      subtitle-text-font: var(--status-card-font-family),
+    )
+  );
+
+  &:hover {
+    background-color: var(--status-card-surface-current);
+    box-shadow: var(--status-card-shadow-current, var(--status-card-shadow));
+  }
+
+  &.status-card-disabled {
+    cursor: default;
+  }
+}
+
+.status-card-content {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--status-card-content-gap);
+
+  h2 {
+    margin: 0;
+    font-size: var(--status-card-title-size);
+    font-weight: var(--status-card-title-weight);
+    line-height: var(--status-card-title-line-height);
+  }
+
+  p {
+    margin: 0;
+    font-size: var(--status-card-content-size);
+    font-weight: var(--status-card-content-weight);
+    line-height: var(--status-card-content-line-height);
+  }
+}
+
+.status-card-value {
+  margin: 0;
+  font-size: var(--status-card-value-size);
+  font-weight: var(--status-card-value-weight);
+  line-height: var(--status-card-value-line-height);
+}
+
+.status-card-icon {
+  position: absolute;
+  right: var(--status-card-icon-right);
+  bottom: var(--status-card-icon-bottom);
+  width: var(--status-card-icon-size);
+  height: var(--status-card-icon-size);
+  font-size: var(--status-card-icon-size);
+  line-height: var(--status-card-icon-size);
+  color: var(--status-card-text-current);
+  opacity: var(--status-card-icon-opacity);
+  pointer-events: none;
+}
