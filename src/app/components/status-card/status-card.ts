@@ -88,7 +88,6 @@ export class StatusCard implements ControlValueAccessor {
     }
 
     const next = !this.isActive();
-    
     this.activeState.set(next);
     this.onChange(next);
     this.markAsTouched();

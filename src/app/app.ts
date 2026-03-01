@@ -17,6 +17,17 @@ import { Color } from './components/status-card/status-card.types';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
+  readonly statusColorOptions: ReadonlyArray<{
+    value: Color;
+    label: string;
+  }> = [
+    { value: 'primary', label: 'Primary' },
+    { value: 'success', label: 'Success' },
+    { value: 'warning', label: 'Warning' },
+    { value: 'danger', label: 'Danger' },
+    { value: 'attention', label: 'Attention' },
+  ];
+
   readonly form = new FormGroup({
     display: new FormControl<DisplayValue>(
       {
@@ -67,7 +78,6 @@ export class App {
       statusControl.setValue(false);
       statusControl.disable();
       displayControl.disable();
-      
       return;
     }
 

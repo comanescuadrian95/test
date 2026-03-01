@@ -50,51 +50,17 @@
     <div class="example-form-field-container mb-4">
       <fieldset>
         <legend>Status card color</legend>
-        <label for="status-color-primary">
-          <input
-            id="status-color-primary"
-            type="radio"
-            formControlName="statusColor"
-            value="primary"
-          />
-          Primary
-        </label>
-        <label for="status-color-success">
-          <input
-            id="status-color-success"
-            type="radio"
-            formControlName="statusColor"
-            value="success"
-          />
-          Success
-        </label>
-        <label for="status-color-warning">
-          <input
-            id="status-color-warning"
-            type="radio"
-            formControlName="statusColor"
-            value="warning"
-          />
-          Warning
-        </label>
-        <label for="status-color-danger">
-          <input
-            id="status-color-danger"
-            type="radio"
-            formControlName="statusColor"
-            value="danger"
-          />
-          Danger
-        </label>
-        <label for="status-color-attention">
-          <input
-            id="status-color-attention"
-            type="radio"
-            formControlName="statusColor"
-            value="attention"
-          />
-          Attention
-        </label>
+        @for (option of statusColorOptions; track option.value) {
+          <label [for]="'status-color-' + option.value">
+            <input
+              [id]="'status-color-' + option.value"
+              type="radio"
+              formControlName="statusColor"
+              [value]="option.value"
+            />
+            {{ option.label }}
+          </label>
+        }
       </fieldset>
     </div>
 

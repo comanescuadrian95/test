@@ -55,26 +55,25 @@ export class Display implements ControlValueAccessor {
   }
 
   onTitleInput(event: Event): void {
-    this.emitValue({
-      title: (event.target as HTMLInputElement).value,
+    const next = (event.target as HTMLInputElement).value;
+    this.titleState.set(next);
+    this.onChange({
+      title: next,
       content: this.content(),
     });
   }
 
   onContentInput(event: Event): void {
-    this.emitValue({
+    const next = (event.target as HTMLInputElement).value;
+    this.contentState.set(next);
+    this.onChange({
       title: this.title(),
-      content: (event.target as HTMLInputElement).value,
+      content: next,
     });
   }
 
   markAsTouched(): void {
     this.onTouched();
-  }
-
-  private emitValue(next: DisplayValue): void {
-    this.applyValue(next);
-    this.onChange(next);
   }
 
   private applyValue(value: DisplayValue): void {
