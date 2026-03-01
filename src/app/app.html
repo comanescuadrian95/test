@@ -51,15 +51,15 @@
       <fieldset>
         <legend>Status card color</legend>
         @for (option of statusColorOptions; track option.value) {
-          <label [for]="'status-color-' + option.value">
-            <input
-              [id]="'status-color-' + option.value"
-              type="radio"
-              formControlName="statusColor"
-              [value]="option.value"
-            />
-            {{ option.label }}
-          </label>
+        <label [for]="'status-color-' + option.value">
+          <input
+            [id]="'status-color-' + option.value"
+            type="radio"
+            formControlName="statusColor"
+            [value]="option.value"
+          />
+          {{ option.label }}
+        </label>
         }
       </fieldset>
     </div>
